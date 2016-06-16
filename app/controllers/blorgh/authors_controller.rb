@@ -56,7 +56,7 @@ module Blorgh
 
       # Only allow a trusted parameter "white list" through.
       def author_params
-        params.require(:author).permit(:article_id, :, :name, :email)
+        params.require(:author).permit(:name, :email, :password, :password_confirmation)
       end
   end
 end
