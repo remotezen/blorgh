@@ -11,15 +11,9 @@
     </div>
   <% end %>
 
-  <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :text %><br>
-    <%= f.text_area :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.text_field :title, class:"form-control" %>
+    <%= f.label :content %><br>
+    <%= f.text_area :text, class:"form-control" %>
+    <%= f.submit :submit_article,  class:"btn"%>
 <% end %>

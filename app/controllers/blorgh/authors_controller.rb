@@ -2,7 +2,7 @@ require_dependency "blorgh/application_controller"
 
 module Blorgh
   class AuthorsController < ApplicationController
-    before_action :set_author, only: [:show, :edit, :update, :destroy]
+    before_action :set_author, only: [:new, :edit, :update, :destroy]
 
     # GET /authors
     def index
@@ -11,6 +11,7 @@ module Blorgh
 
     # GET /authors/1
     def show
+      @author = Author.find_by(params[:id])
     end
 
     # GET /authors/new

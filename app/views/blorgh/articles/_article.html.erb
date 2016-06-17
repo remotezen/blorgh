@@ -1,2 +1,12 @@
-<li>article.title</li>
-<li>article.text</li>
+<li>
+	<%= article.title %>
+</li>
+<li>
+<%= article.text %>
+</li>
+<li class="list_link">
+<%= link_to :show, article %>
+<%= link_to :edit, edit_article_path(article) %>
+<%= link_to :new, new_article_path %>
+
+</li>

@@ -2,6 +2,9 @@ require_dependency "blorgh/application_controller"
 
 module Blorgh
   class CommentsController < ApplicationController
+    
+    before_action :logged_in, only: [:create]
+    
     def create
       @article = Article.find(params[:article_id])
       @comment = @article.comments.create(comment_params)

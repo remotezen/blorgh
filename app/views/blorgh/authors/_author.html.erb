@@ -1,5 +1,11 @@
-<li>author.name</li>
-<li>author.email</li>
+<li>
+<%= author.name %>
+</li>
+<li>
+	<%= author.email %>
+</li>
+<% unless author.articles.blank? %>
 <ul>
 	<li><%= render author.articles %></li>
 </ul>
+<% end %>

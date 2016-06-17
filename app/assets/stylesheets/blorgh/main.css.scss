@@ -1,0 +1,12 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+.ground{
+	background-color: #eceeef;
+	text-align:center;
+	min-height: 3em;
+}
+.col-centered{
+	float:none;
+	margin: 0 auto;
+
+}

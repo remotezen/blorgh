@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
-<%=render @author  %>
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+<ul class="list_list">
+	<li>
+		<%= @author.name %>
+	</li>
+	<li>
+		<%= @author.email %>
+	</li>
+	<li>
+		<%= link_to 'Edit', edit_author_path(@author) %> |
+		<%= link_to 'Back', authors_path %>
+</li>
+</ul>

@@ -1,9 +1,5 @@
 <%=form_for [@article, @article.comments.build] do |f| %>
-	<p>
-		<%=f.label :comment  %>
+		<%=f.label :comment, class: "form-control"  %>
 		<%= f.text_field :text %>
-	</p>
-	<p>
-		<%=f.submit :comment  %>
-	</p>
+		<%=f.submit :comment, class:'btn'  %>
 <% end %>

@@ -12,5 +12,10 @@ module Blorgh
     validates :password, presence: true,
       length: {minimum: 6}, allow_nil: true
     has_secure_password
+    before_save :downcase_email
+    private
+    def downcase_email
+      self.email = email.downcase
+    end
   end
 end

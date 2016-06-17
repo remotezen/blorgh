@@ -2,7 +2,9 @@ require_dependency "blorgh/application_controller"
 
 module Blorgh
   class ArticlesController < ApplicationController
+    
     before_action :set_article, only: [:show, :edit, :update, :destroy]
+    before_action :logged_in, only: [:new, :edit, :update, :create, :destroy]
 
     # GET /articles
     def index

@@ -2,13 +2,39 @@
 <html>
 <head>
   <title>Blorgh</title>
-  <%= stylesheet_link_tag    "blorgh/application", media: "all" %>
-  <%= javascript_include_tag "blorgh/application" %>
+
+  <%= stylesheet_link_tag    'blorgh/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'blorgh/application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<% if logged_in? %>
+		<%=link_to "Log out", logout_path, method: "delete" %>
+  <% else %>
+		<%= link_to "Log in", login_path %>
+	<% end %>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-8 text-center center">
+					bloggable
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+				<div class="col-xs-12 col-md-8 col-md-offset-2 text-center center col-centered">
+				<%= render 'layouts/blorgh/flash' %>
+				<%= yield %>
+			</div>
+    </div>
+	</div>
 
-<%= yield %>
+		</div>
+	</div>
+
 
 </body>
 </html>
