@@ -1,1 +1,9 @@
-<%= comment_counter + 1%>. <%= comment.text %>
+<li>
+<%= gravatar_for comment.article.author, size:30 %>
+<%= comment.article.author.name %>
+</li>
+<li>
+	<%= comment_counter + 1%> <%= comment.text %>
+</li>
+
+

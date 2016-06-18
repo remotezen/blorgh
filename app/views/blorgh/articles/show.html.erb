@@ -1,15 +1,18 @@
-<p id="notice"><%= notice %></p>
+<ul class= "list_list <%= cycle('even','odd') %>">
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
-<%= render @article.comments %>
+<li>
+<strong>Title:</strong>
+<%= @article.title %>
+</li>
+<li>
+	<strong>Text:</strong>
+	<%= @article.text %>
+</li>
+</ul>
+<h3 class="mid_header_font">Comments</h3>
+<ul class="list_list <%= cycle('odd','even') %>">
+		<%= render @article.comments %>
+</ul>
 <%=  render "blorgh/comments/form"%>
 
 

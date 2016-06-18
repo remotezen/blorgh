@@ -1,5 +1,15 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+$light-teal: #c0dfd9;
+$light-gold: #e9ece5;
+$dark-teal: #b3c2bf;
+$dark-khaki: #3b3a36;
+@mixin list_padding{
+	padding:1.2em;
+}
+@mixin header_padding{
+	padding:1.5em;
+}
 .ground{
 	background-color: #eceeef;
 	text-align:center;
@@ -9,4 +19,24 @@
 	float:none;
 	margin: 0 auto;
 
+}
+ul.list_list {
+	li{
+		list-style-type:none;
+		text-align:center
+	}
+}
+.even{
+	background:$light-gold;
+	@include list_padding;
+}
+.odd{
+	background: $dark-teal;
+	@include list_padding;
+
+}
+.mid_header_font{
+ @include header_padding;	
+	background: $dark-khaki;
+	
 }
