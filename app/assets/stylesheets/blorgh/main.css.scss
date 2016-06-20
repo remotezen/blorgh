@@ -1,42 +1,102 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
-$light-teal: #c0dfd9;
-$light-gold: #e9ece5;
-$dark-teal: #b3c2bf;
-$dark-khaki: #3b3a36;
+ $screen-phone: 480px;
+$screen-tablet: 768px;
+$screen-desktop: 992px;
+$screen-lg-desktop: 1200px;
+$light-one: #c0dfd9;
+$light-two: #e9ece5;
+$color-secondary: #b3c2bf;
+$color-primary: #3b3a36;
+$border-round:10px;
 @mixin list_padding{
 	padding:1.2em;
 }
 @mixin header_padding{
 	padding:1.5em;
 }
-.ground{
-	background-color: #eceeef;
-	text-align:center;
-	min-height: 3em;
+
+@media (max-width: $screen-phone) { 
+	h1{
+		font-size: 22px;
+	}
+	h3{
+		font-size:18px;
+		color: #333;
+	}
+} //767px & lower
+@media (max-width: $screen-tablet) { 
+	h1{
+		font-size: 24px;
+	}
+	h3{
+		font-size:20px;
+		color: #333;
+	}
+} //767px & lower
+@media (max-width: $screen-desktop) { 
+	h1{
+		font-size: 26px;
+	}
+	h3{
+		font-size:22px;
+		color: #333;
+	}
+} //767px & lower
+.rounded{
+	border-radius: $border-round;
 }
+.rounded{
+	border-radius: $border-round;
+}
+.heading{text-align: center}
+
+
 .col-centered{
 	float:none;
 	margin: 0 auto;
 
 }
 ul.list_list {
+		li:nth-last-child(even){
+			background:$light-two;
+		}
+		li:nth-last-child(odd){
+			background:$light-two;
+		}
+		li:nth-last-child(1){
+			border-bottom:6px solid $color-primary;
+		}
+		li:nth-child(1){
+			border-top:$color-primary;
+		}
 	li{
+		border-bottom: 1px solid #ccc;
 		list-style-type:none;
-		text-align:center
+		text-align:left;
+		margin:2px;
+
 	}
 }
-.even{
-	background:$light-gold;
-	@include list_padding;
+.comment-container{
+	text-align:left;
 }
-.odd{
-	background: $dark-teal;
-	@include list_padding;
+.comment-header{
+	text-align:left;
 
 }
-.mid_header_font{
- @include header_padding;	
-	background: $dark-khaki;
+.container-fluid{
+	border-left: 2px solid black;
+}
+.well{
+	background-color:$light-one;
+}
+
+.index-list{
+	li{
+		list-style-type:none;
+	}
 	
 }
+
+

@@ -7,6 +7,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'jquery-rails'
+gem 'simple_form'
 
 # Use SCSS for stylesheets 
 gem 'sass-rails', '~> 5.0' 

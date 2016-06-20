@@ -1,9 +1,16 @@
 <li>
-<%= gravatar_for comment.article.author, size:30 %>
-<%= comment.article.author.name %>
+
+<div class="comment-header">
+	<span class="img-thumbnail">
+		<%= gravatar_for comment.article.author, size:30 %>
+	</span>
+		<%= comment.article.author.name %>
+</div>
 </li>
 <li>
-	<%= comment_counter + 1%> <%= comment.text %>
+	<div class="well well-sm comment-container">
+	 <%= comment.text %>
+	</div>
 </li>
 
 

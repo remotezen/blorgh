@@ -1,0 +1,9 @@
+<%=simple_form_for @author do |f| %>
+		<%= render 'blorgh/shared/error_messages', object: f.object %>
+		<%= f.input :name, label: 'user name', error: "user name is a require field" %>
+		<%= f.input :email, label: 'email', error: "user email is a require field" %>
+		<%= f.input :password, label: 'password', error: "you must provide a password" %>
+		<%= f.input :password_confirmation, label: 'password confirmation', 
+			error: "your passwords must match"%>
+		<%= f.button :submit, class:"btn"%>
+	<%end%>

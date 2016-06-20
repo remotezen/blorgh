@@ -5,7 +5,7 @@ Blorgh::Engine.routes.draw do
   post 'login'=> 'sessions#create'
   root 'articles#index'
     
-  get "signup" => "users#new", :as => "signup"
+  get "signup" => "authors#new", :as => "signup"
 
   resources :authors
   resources :authors do
