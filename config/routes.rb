@@ -6,10 +6,12 @@ Blorgh::Engine.routes.draw do
   root 'articles#index'
     
   get "signup" => "authors#new", :as => "signup"
+  get "home" => "home#index", :as => "home"
 
   resources :authors
   resources :authors do
     resources :articles
+    resources :comments
   end
   resources :articles do
     resources :comments

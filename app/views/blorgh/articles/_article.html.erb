@@ -1,20 +1,15 @@
-<li> 
-<span class="img-rounded" style="backround:#000;">
-	<%= gravatar_for article.author %>
-	<h3>
-		<%= article.author.name %>
-	</h3>
-</span>
-</li>
-<li>
-	<%= article.title %>
-</li>
-<li>
-<%= article.text %>
-</li>
-<li class="list_link">
-<%= link_to :show, article %>
-<%= link_to :edit, edit_article_path(article) %>
-<%= link_to :new, new_article_path %>
+	<li> 
+		<%= gravatar_for article.author %>
+		<h3>
+			<%= article.author.name %>
+		</h3>
+	</li>
+	<li>
+		<%=link_to article.title, article_path(article) %>
+	</li>
+	<li class="list_link">
+	<%= link_to :show, article %>
+	<%= link_to :edit, edit_article_path(article) %>
+	<%= link_to :new, new_article_path %>
 
-</li>
+	</li>
