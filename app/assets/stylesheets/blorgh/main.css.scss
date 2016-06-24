@@ -1,14 +1,56 @@
-@import 'bootstrap-sprockets';
-@import 'bootstrap';
- $screen-phone: 480px;
-$screen-tablet: 768px;
-$screen-desktop: 992px;
-$screen-lg-desktop: 1200px;
-$light-one: #c0dfd9;
-$light-two: #e9ece5;
-$color-secondary: #b3c2bf;
-$color-primary: #3b3a36;
-$border-round:10px;
+@import '__import';
+.link-list-rollover{
+	.link-list-rollover-content{
+		display:none;
+
+	}
+}
+.link-list-rollover:hover .link-list-rollover-content{
+	display:block;
+
+}
+
+.footer{
+	padding-top:60px;
+	text-align:center;
+	margin: 0 0px
+}
+.foot-link-1{
+	@include circle(75px, 75px, $dark-blue);
+	@include white-link;
+}
+.foot-link-2{
+	@include circle(75px, 75px, $dark-font);
+	@include white-link;
+}
+.foot-link-3{
+	@include circle(75px, 75px, $yellow-border);
+	@include white-link;
+}
+.foot-link-4{
+	@include circle(75px, 75px, $light-font);
+	@include white-link;
+}
+.sub-footer{
+	text-align:center;
+		background:$yellow-border;
+		padding:8px;
+	a{
+		color:$dark-blue;
+		:visited{
+			color:$dark-font;
+			
+		}
+	}
+}
+
+.button_color{
+	background:$dark-font;
+	color:$yellow-border
+
+}
+
+
 
 @font-face {
   font-family: 'Glyphicons Halflings';
@@ -21,14 +63,40 @@ $border-round:10px;
 @mixin header_padding{
 	padding:1.5em;
 }
+a{color:$light-blue;}
 
-@media (max-width: $screen-phone) { 
+@media screen and (max-width: $screen-phone) { 
+
+	.foot-link-1{
+		@include white-link;
+	}
+	.foot-link-2{
+		@include white-link;
+	}
+	.foot-link-3{
+		@include white-link;
+	}
+	.foot-link-4{
+		@include white-link;
+	}
+	.sub-footer{
+		text-align:center;
+			background:$yellow-border;
+			padding:8px;
+		a{
+			color:$dark-blue;
+			:visited{
+				color:$dark-font;
+				
+			}
+		}
+}
 h1{
 	font-size: 22px;
 }
 h3{
 	font-size:18px;
-	color: #333;
+	color: $font-color;
 }
 } //767px & lower
 @media (max-width: $screen-tablet) { 
@@ -37,7 +105,7 @@ h3{
 	}
 	h3{
 		font-size:20px;
-		color: #333;
+		color: $font-color;
 	}
 } //767px & lower
 @media (max-width: $screen-desktop) { 
@@ -49,9 +117,8 @@ h3{
 		color: #333;
 	}
 } //767px & lower
-.rounded{
-	border-radius: $border-round;
-}
+body{padding-top:60px;}
+
 .rounded{
 	border-radius: $border-round;
 }
@@ -96,6 +163,17 @@ ul.list_list {
 }
 
 .index-list{
+	margin-top:2em;
+	li:first-child{
+		border-top:1px $light-two solid;
+		margin-bottom:2em;
+		padding-top:1em;
+		
+	}
+	li:last-child{
+		border-bottom:1px $light-two solid;
+		margin-top:2em;
+	}
 	li{
 		list-style-type:none;
 		text-align:left;
@@ -108,7 +186,7 @@ ul.list_list {
 	margin-bottom: 1.5em;
 	border-radius: 10px;
 	font-size:1.2em;
-	:nth-last-child{
+	li:nth-last-child{
 		border-bottom:solid #444 1px;
 	}
 }
@@ -125,56 +203,9 @@ ul.list_list {
 
 	}
 }
+.login{
+	color:$dark-font
+
+}
 //menu stylings
 
-$bgDefault      : $light-one;
-$bgHighlight    : $light-two;
-$colDefault     : #ecf0f1;
-$colHighlight       : #000;
-.navbar-default {
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
-  .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus { 
-      color: $colHighlight; }}
-  .navbar-text {
-    color: $colDefault; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-  .navbar-toggle {
-    border-color: $bgHighlight;
-    &:hover, &:focus {
-      background-color: $bgHighlight; }
-    .icon-bar {
-      background-color: $colDefault; }}
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-      color: $colHighlight; }}}
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-    > li > a {
-      color: $colDefault;
-      &:hover, &:focus {
-        color: $colHighlight; }}
-    > .active {
-      > a, > a:hover, > a:focus, {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-}

@@ -1,0 +1,11 @@
+<span class="link-list link-list-rollover">
+	options
+	<span class="link-list-rollover-content">
+		<%= render 'blorgh/shared/spacer' %>
+		<%= glyph_menu_to('book', article_path(article)) %>
+		<%= render 'blorgh/shared/spacer' %>
+		<%= glyph_menu_to('pencil', edit_article_path(article)) %>
+		<%= render 'blorgh/shared/spacer' %>
+		<%= glyph_menu_to('plus', new_article_path) %>
+	</span>
+</span>

@@ -2,8 +2,12 @@ require 'test_helper'
 
 module Blorgh
   class AuthorTest < ActiveSupport::TestCase
-    # test "the truth" do
-    #   assert true
-    # end
+    def setup
+      @author =authors(:one)
+    end
+    test "author should be valid" do
+      assert @author.valid?
+    end
   end
 end
+

@@ -9,6 +9,8 @@
 <body>
 
 <%= yield %>
-
+<% if RAIL.env == :development %>
+	debug(params)
+	<% end %>k
 </body>
 </html>

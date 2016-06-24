@@ -5,11 +5,6 @@
 		</h3>
 	</li>
 	<li>
-		<%=link_to article.title, article_path(article) %>
-	</li>
-	<li class="list_link">
-	<%= link_to :show, article %>
-	<%= link_to :edit, edit_article_path(article) %>
-	<%= link_to :new, new_article_path %>
-
+		<%=link_to article.title, article_path(article) %> 
+		<%= render partial: 'blorgh/shared/article_options', locals:{article: article}%>
 	</li>

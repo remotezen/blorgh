@@ -16,9 +16,8 @@ module Blorgh
     end
     
     def destroy
-      session[:author_id] = nil
+      logout if logged_in?
       redirect_to root_url
-      
     end
   end
 end

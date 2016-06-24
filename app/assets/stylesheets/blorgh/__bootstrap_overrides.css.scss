@@ -1,0 +1,16 @@
+@import '__import';
+
+
+.well{
+	p{
+		background:$light-font;
+		text-align:center;
+		color:$light-two;
+		padding: 12px;
+		margin: 8px;
+		border:solid $light-two 1px;
+		border-radius:10px;
+		font-size:1.3em;
+
+	}
+}

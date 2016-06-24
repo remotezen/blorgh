@@ -57,6 +57,9 @@ module Blorgh
     end
 
     private
+      def article_author
+        
+      end
       # Use callbacks to share common setup or constraints between actions.
       def set_article
         @article = Article.find(params[:id])

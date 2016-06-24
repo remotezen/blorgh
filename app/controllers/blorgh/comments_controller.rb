@@ -8,7 +8,7 @@ module Blorgh
     def create
       @article = Article.find(params[:article_id])
       @comment = @article.comments.create(comment_params)
-      @comment.author_id = @article.author_id
+      @comment.attributes = {author_id: @article.author_id}
       if @comment.save
         flash[:notice] = "Comment has been created"
         redirect_to @article
@@ -17,7 +17,7 @@ module Blorgh
       end
     end
     def index
-      @comments = Comment.find_by(author_id: params[:id])
+      @comments = Comment.where(author_id: params[:id])
     end
       private
       def comment_params

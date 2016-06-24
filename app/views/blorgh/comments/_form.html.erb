@@ -1,7 +1,7 @@
 <%=form_for [@article, @article.comments.build] do |f| %>
 		<%= render 'blorgh/shared/error_messages', object: f.object %>
 		<%=f.label :comment, class: "form-control"  %>
-		<%= f.text_field :text %>
-		<br>
-		<%=f.submit :comment, class:'btn'  %>
+		<%= f.text_area :text %>
+		<%=f.button :comment, class: "form-control btn btn-lg"  %>
 <% end %>
+<br>

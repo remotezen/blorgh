@@ -1,0 +1,21 @@
+@mixin white-link{
+	a{
+		text-decoration:none;
+		color: #fff;
+		&:hover{
+			color: #ccc;
+
+		}
+	}
+
+}
+
+@mixin circle($h:100px, $w:100px, $bg:#fff568){
+    width:$w;
+    height:$h;
+    border-radius:50px;
+    font-size:20px;
+    background:$bg;
+    line-height:$h;
+    text-align:center;
+}
