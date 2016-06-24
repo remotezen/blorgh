@@ -20,6 +20,7 @@ group :develop, :test do
   gem 'better_errors'
   gem 'pry'
   gem 'pry-rails'
+  gem 'minitest-rails'
 end
 
 # Declare any dependencies that are still in development here instead of in
