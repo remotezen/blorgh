@@ -4,21 +4,8 @@ module Blorgh
     helper_method :current_author , :logged_in?, :back_to
     after_filter :back_to
     include AuthorsHelper
-    def current_author
-      @current_author ||= Author.find(session[:author_id]) if session[:author_id]
-    end
+    include SessionsHelper
     
-    def logged_in?
-      current_author != nil
-    end
-
-    def logged_in
-      redirect_to login_path unless logged_in?
-    end
-
-    def back_to
-      session[:previous] = request.original_url 
-    end
   
   end
 end

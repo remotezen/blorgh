@@ -3,6 +3,8 @@ require_dependency "blorgh/application_controller"
 module Blorgh
   class AuthorsController < ApplicationController
     before_action :set_author, only: [:edit, :update, :destroy]
+    before_action :logged_in, only: [:edit, :update, :destroy, :index]
+    before_action :correct_author, only: [:edit,:update,:destroy]
 
     # GET /authors
     def index
@@ -59,5 +61,16 @@ module Blorgh
       def author_params
         params.require(:author).permit(:name, :email, :password, :password_confirmation)
       end
+      def admin_user
+        if current_author.logged_in?
+          redirect_to root_url unless current_author.is_admin?
+        end
+      end
+      
+      def correct_author
+        @author = Author.find(params[:id])
+        redirect_to(root_url) unless current_author?(@author)
+      end
+      
   end
 end

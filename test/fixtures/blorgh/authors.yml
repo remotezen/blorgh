@@ -1,11 +1,15 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   article_id: 1
   name: fred hudson
   email: remotezen@bell.net 
+  password_digest: <%=Blorgh::Author.digest('password')%>
+  admin: true
 
 two:
-  article_id: 2 
-  name: Bob Biffman 
-  email: fredjhudson@sympatico.ca 
+  article_id: 2
+  name: bobby boy 
+  email: bob@bell.net 
+  password_digest: <%=Blorgh::Author.digest('password')%>
+  admin: false
+
+

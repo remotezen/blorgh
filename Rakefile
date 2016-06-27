@@ -6,6 +6,8 @@ end
 
 require 'rdoc/task'
 
+require 'ci/reporter/rake/minitest'
+
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Blorgh'
@@ -32,6 +34,12 @@ Rake::TestTask.new(:test) do |t|
   t.pattern = 'test/**/*_test.rb'
   t.verbose = false
 end
+task :minitest => 'ci:setup:minitest'
+
+namespace :ci do
+  task :all => ['ci:setup:minitest', 'minitest']
+end
+
 
 
 task default: :test

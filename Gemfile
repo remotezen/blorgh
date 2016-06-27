@@ -6,6 +6,7 @@ source 'https://rubygems.org'
 # development dependencies will be added by default to the :development group.
 gemspec
 
+
 gem 'jquery-rails'
 gem 'simple_form'
 
@@ -16,11 +17,33 @@ gem 'bootstrap-sass', :git => 'https://github.com/twbs/bootstrap-sass.git', :bra
 
 gem 'turbolinks'
 
+
+group :development do
+  gem 'guard'
+  gem 'guard-minitest',     '2.3.1'
+end
+
 group :develop, :test do
+  gem 'spring',      '1.7.1'
   gem 'better_errors'
   gem 'pry'
   gem 'pry-rails'
+  gem 'minitest'
   gem 'minitest-rails'
+  gem 'minitest-around'
+  gem 'peek'
+  gem 'ci_reporter'
+  gem 'ci_reporter_minitest'
+  gem 'minitest-rg'
+end
+gem 'railties'
+
+gem 'figaro'
+
+group :test do
+   gem 'minitest-reporters', '1.0.5'
+   gem 'mini_backtrace', github: 'JunichiIto/mini_backtrace', branch: 'fix-backtrace_cleaner-undefined-issue'
+   gem 'database_cleaner'
 end
 
 # Declare any dependencies that are still in development here instead of in

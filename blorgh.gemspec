@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_dependency "bcrypt"
   s.add_dependency 'autoprefixer-rails'
+  s.add_development_dependency "minitest-rails"
 end
