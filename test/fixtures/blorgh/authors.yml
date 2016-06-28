@@ -1,4 +1,5 @@
 one:
+  id: 1
   article_id: 1
   name: fred hudson
   email: remotezen@bell.net 
@@ -6,6 +7,7 @@ one:
   admin: true
 
 two:
+  id: 2
   article_id: 2
   name: bobby boy 
   email: bob@bell.net 

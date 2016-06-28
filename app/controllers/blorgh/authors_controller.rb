@@ -5,6 +5,7 @@ module Blorgh
     before_action :set_author, only: [:edit, :update, :destroy]
     before_action :logged_in, only: [:edit, :update, :destroy, :index]
     before_action :correct_author, only: [:edit,:update,:destroy]
+    before_action :admin_author, only: [:delete]
 
     # GET /authors
     def index

@@ -35,6 +35,7 @@ group :develop, :test do
   gem 'ci_reporter'
   gem 'ci_reporter_minitest'
   gem 'minitest-rg'
+  gem 'test-unit'
 end
 gem 'railties'
 
@@ -43,7 +44,14 @@ gem 'figaro'
 group :test do
    gem 'minitest-reporters', '1.0.5'
    gem 'mini_backtrace', github: 'JunichiIto/mini_backtrace', branch: 'fix-backtrace_cleaner-undefined-issue'
-   gem 'database_cleaner'
+   gem 'shoulda'
+  gem 'shoulda-context'
+  gem 'shoulda-matchers'
+  gem 'database_cleaner'
+  gem 'minitest-rails-capybara'
+  gem 'capybara'
+  gem 'simplecov', require: false
+  gem 'mocha'
 end
 
 # Declare any dependencies that are still in development here instead of in

@@ -6,7 +6,12 @@ require "minitest/reporters"
 require 'minitest/autorun'
 require 'support/database_cleaner'
 require 'minitest/rg'
-
+require 'shoulda-matchers'
+require "minitest/rails/capybara"
+require 'simplecov'
+require 'mocha/mini_test'
+require 'minitest/rails/capybara'
+SimpleCov.start 'rails' unless ENV['NO_COVERAGE']
 Minitest::Reporters.use!
 ########################################################
 require File.expand_path("../../test/dummy/config/environment.rb",  __FILE__)
@@ -40,6 +45,12 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 # Uncomment for awesome colorful output
  require "minitest/pride"
 # Load fixtures from the engine
+class ActionDispatch::IntegrationTest
+ include Capybara::DSL
+ include Capybara::Assertions
+end
+
+ 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 self.fixture_path = Blorgh::Engine.root.join("test", "fixtures")
@@ -47,8 +58,12 @@ self.fixture_path = Blorgh::Engine.root.join("test", "fixtures")
   fixtures :all
 end
 
-
 class ActionController::TestCase
+  self.fixture_path = Blorgh::Engine.root.join("test", "fixtures")
+  fixtures :all
+
+  include Capybara::DSL ## add this line
+  include Rails.application.routes.url_helpers ## add this line
   setup do
     @routes = Blorgh::Engine.routes
   end

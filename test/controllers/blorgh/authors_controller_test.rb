@@ -8,38 +8,67 @@ module Blorgh
       @other = blorgh_authors(:two)
     end
     
-    test "should get index" do
-      get :index
-      assert_redirected_to login_url
+    context 'GET # show' do
+      setup {get :show, id: @author}
+      should render_template('show')
     end
-    
-    test "should get new" do
-      get :new
-      assert :success
+    context 'GET # edit' do
+      setup {
+        log_in_as(@author)
+        get :edit, id: @author}
+      should render_template('blorgh/authors/edit')
+      should render_template(partial: 'blorgh/authors/_form')
     end
-    
-    test " logged in user should get index" do
-      log_in_as(@author)
-      get :index
-      assert :success 
-    end
-    
-    test "should redirect when wrong author tries to edit"   do
-      log_in_as(@author)
-      get :edit, id: @other
-      assert :success
-    end
-
-    
-    test "should redirect when wrong author tried to update"   do
-      log_in_as(@other)
-      patch :update, id: @author, author:{ name: @author.name,
-                                           email: @author.email
+    context 'GET # edit wrong user should be redirected' do
+      setup{
+        log_in_as(@other)
+        get :edit, id: @author
       }
-      
-      assert :success
+      should redirect_to("home page"){root_url}
+    end
+    context 'GET # index' do
+      setup {
+        get :index
+      }
+      should redirect_to("login"){login_path}
+    end
+    
+    context 'logged in user should get index' do
+      setup{
+        log_in_as @author
+        get :index
+      }
+      should respond_with 200
+    end
+    context 'GET # new'   do
+      setup{
+        get :new
+      }
+      should respond_with 200
     end
 
+    context 'should redirect when wrong user tries to update' do
+      setup{
+        log_in_as(@other)
+        patch :update, id: @author, author:{ name: @author.name,
+                                            email: @author.email }
+      }
+      should redirect_to("home page"){root_url}
+    end
+  
+    context "should redirect non-admin user delete" do
+      setup{
+        log_in_as(@other)
+        delete :destroy, id: @author
+      }
+      should redirect_to("home page"){root_url}
+    end
+    context "should allow admin user to delete" do
+      setup{
+        log_in_as(@author)
+        delete :destroy, id: @author
+      }
+      should redirect_to("authors index"){ authors_url }
+    end
   end
-
 end

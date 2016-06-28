@@ -12,7 +12,9 @@ module Blorgh
     def logged_in?
       current_author != nil
     end
-
+    def admin_author
+      redirect_to root_url unless current_author.admin?
+    end
     def logged_in
       redirect_to login_path unless logged_in?
     end
